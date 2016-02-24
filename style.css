@@ -1,0 +1,436 @@
+@import url(SourceSansPro/font.css);
+@import url(Tillana/font.css);
+@import url(FontAwesome/font.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro',sans-serif;
+}
+
+.page{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.header {
+    display: block;
+    min-width: 100%;
+    padding: 5px;
+}
+.header #toggle {
+    position: fixed;
+    top: 1px;
+    right: 5px;
+    font-size: 60px;
+    color: #fff;
+}
+.header #toggle a {
+    color: #fff;
+    transition: 0.3s all ease;
+}
+.header #toggle a:hover {
+    color: #bdc3c7;
+}
+
+#nav {
+    position: fixed;
+    top: -70px;
+    right: 0px;
+    transition: all 0.5s ease;
+    border-radius: 0px 0px 0px 10px;
+    overflow-x: visible;
+    z-index: 10;
+}
+#nav:target {
+    display: block;
+    position: fixed;
+    top: 0px;
+}
+#nav ul {
+    display: table-row;
+}
+#nav li {
+    list-style: none;
+}
+#nav a {
+    display: table-cell;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    width: 170px;
+    background: #0F8642;
+    padding: 4px 0px;
+    margin: 0px -2px;
+    border-left: 1px solid #27ae60;
+    overflow-x: visible;
+    transition: 0.2s all ease;
+}
+#nav a:hover {
+    color: #0F8642;
+    background: #27ae60;
+}
+#cross {
+    width: 50px !important;
+}
+
+.quote {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    color: #fff;
+}
+.quote a {
+    color: #fff;
+}
+.quote a:hover {
+    color: #ecf0f1;
+}
+.quote #quote {
+    font-family: 'Tillana', cursive;
+    font-size: 34px;
+    line-height: 38px;
+}
+.quote #quote a {
+    color: #fff;
+    font-family: 'Tillana', cursive;
+    font-size: 34px;
+    line-height: 38px;
+}
+.quote #quote span {
+    font-size: 40px;
+    line-height: 38px;
+}
+.quote #character {
+    font-family: 'Tillana', cursive;
+    font-size: 25px;
+}
+.quote #source {
+    font-size: 20px;
+    margin-top: -5px;
+}
+
+.sharebutton {
+    position: fixed;
+    top: 5px;
+    right: 70px;
+    font-size: 50px;
+    z-index: 0;
+}
+.sharebutton #toggle a {
+    color: #fff;
+    transition: 0.3s all ease;
+}
+.sharebutton #toggle a:hover {
+    color: #ecf0f1;
+}
+
+#share {
+    display: block;
+    font-size: 20px;
+    background: #0F8642;
+    color: #fff;
+    padding: 10px;
+    padding-top: 0px;
+    position: fixed;
+    top: -175px;
+    right: 0px;
+    transition: all 0.5s ease;
+    border-radius: 0px 0px 0px 10px;
+}
+#share input {
+    font-size: 13px;
+    text-align: center;
+}
+#share i {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 40px;
+}
+#share span {
+    display: block;
+    text-align: center;
+}
+#share a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+#share td {
+    text-align: right;
+    color: #fff;
+    padding: 5px;
+}
+#share a:hover {
+    color: #ecf0f1;
+}
+#share:target {
+    top: 0px;
+}
+
+.settingsbutton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.settingsbutton #toggle {
+    font-size: 40px;
+}
+.settingsbutton #toggle a {
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.settingsbutton #toggle a:hover {
+    color: #ecf0f1;
+}
+
+#settings {
+    position: fixed;
+    display: block;
+    bottom: -80px;
+    right: 0px;
+    background: #0F8642;
+    padding: 15px;
+    border-radius: 10px 0px 0px 0px;
+    transition: all 0.5s ease;
+}
+#settings:target {
+    bottom: 0px;
+}
+#settings td a {
+    padding: 0px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+#settings td a:hover {
+    color: #ecf0f1;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+.blurBackground{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius="5");
+}
+.credits {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 16px;
+}
+
+
+
+
+
+
+#most-visited,
+#mv-tiles,
+.mv-tiles-old,
+body {
+    -webkit-user-select: none;
+    margin: 0
+}
+.thumb-ntp .mv-tile:focus:not(:hover),
+.thumb-ntp .mv-tile:hover {
+    box-shadow: rgba(0, 0, 0, .0980392) 0 1px 2px 0, rgba(0, 0, 0, .2) 0 4px 8px 0
+}
+.mv-title,
+body {
+    overflow: hidden
+}
+body {
+    padding: 0;
+    background: none
+}
+a {
+    display: block
+}
+a,
+a:active,
+a:hover,
+a:visited {
+    color: inherit;
+    text-decoration: none
+}
+#most-visited {
+    text-align: -webkit-center
+}
+#mv-tiles,
+.mv-tiles-old {
+    font-size: 0;
+    opacity: 0;
+    position: absolute;
+    text-align: -webkit-auto;
+    transition: opacity 1s
+}
+.thumb-ntp #mv-tiles,
+.thumb-ntp .mv-tiles-old {
+    height: 34px;
+    line-height: 146px
+}
+.icon-ntp #mv-tiles,
+.icon-ntp .mv-tiles-old {
+    height: calc(224px);
+    line-height: 112px;
+    width: 100%
+}
+.mv-empty-tile,
+.mv-tile {
+    z-index: 101;
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+    opacity: 1;
+    outline: 0;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+    white-space: nowrap
+}
+.thumb-ntp .mv-empty-tile,
+.thumb-ntp .mv-tile {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    height: 34px;
+    line-height: 100%;
+    margin: 0 8px;
+    width: calc(154px);
+    background: rgba(242, 242, 242, .498039)
+}
+.icon-ntp .mv-empty-tile,
+.icon-ntp .mv-tile {
+    border: none;
+    border-radius: 2px;
+    height: calc(108px);
+    margin: 0 12px 4px;
+    width: calc(84px)
+}
+.mv-tile {
+    transition-duration: 200ms;
+    transition-property: -webkit-transform, border, box-shadow, margin, opacity, width;
+    cursor: pointer
+}
+.thumb-ntp .mv-tile:active {
+    -webkit-filter: brightness(75%)
+}
+.icon-ntp .mv-tile:focus {
+    background: rgba(0, 0, 0, .2)
+}
+.icon-ntp.dark .mv-tile:focus {
+    background: rgba(255, 255, 255, .2)
+}
+.mv-title {
+    border: none;
+    position: absolute;
+    text-overflow: clip
+}
+.thumb-ntp .mv-title {
+    -webkit-mask-image: linear-gradient(to right, #000, #000, 100px, transparent);
+    height: 15px;
+    left: 31px;
+    line-height: 14px;
+    padding: 0;
+    top: 8px;
+    width: calc(120px)
+}
+html:not([dir=rtl]) .thumb-ntp .mv-title[style*="direction: rtl"] {
+    -webkit-mask-image: linear-gradient(to left, #000, #000, 100px, transparent);
+    left: auto;
+    right: 8px;
+    text-align: right
+}
+html[dir=rtl] .mv-title {
+    left: 8px;
+    text-align: left
+}
+html[dir=rtl] .thumb-ntp .mv-title[style*="direction: rtl"] {
+    -webkit-mask-image: linear-gradient(to left, #000, #000, 100px, transparent);
+    right: 31px;
+    text-align: right
+}
+.icon-ntp .mv-title {
+    height: 28px;
+    left: auto;
+    line-height: 117%;
+    right: auto;
+    text-align: center;
+    top: 76px;
+    width: 100%;
+    z-index: 5
+}
+.thumb-ntp .mv-thumb {
+    border-radius: 0;
+    height: 94px;
+    left: 3px;
+    top: 31px;
+    width: 148px
+}
+.thumb-ntp .mv-x {
+    height: 30px;
+    right: 0;
+    width: 40px;
+    background: linear-gradient(to left, #f2f2f2 60%, transparent)
+}
+html[dir=rtl] .thumb-ntp .mv-x {
+    left: -1px;
+    right: auto;
+    background: linear-gradient(to right, #f2f2f2 60%, transparent)
+}
+html[dir=rtl] .thumb-ntp .mv-x::after {
+    left: -1px;
+    right: auto
+}
+.thumb-ntp .mv-x:hover::after {
+    background-color: #5a5a5a
+}
+.thumb-ntp .mv-x:active::after {
+    background-color: #4285f4
+}
+.mv-tile:hover .mv-x {
+    transition-delay: 500ms;
+    opacity: 1
+}
+.icon-ntp .mv-tile:hover .mv-x {
+    transition-delay: 800ms
+}
+.mv-favicon {
+    height: 16px;
+    left: 7px;
+    margin: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 7px;
+    width: 16px;
+    background-size: 16px
+}
+html[dir=rtl] .mv-favicon {
+    left: auto;
+    right: 7px
+}
+.mv-favicon img {
+    height: 100%;
+    width: 100%
+}
