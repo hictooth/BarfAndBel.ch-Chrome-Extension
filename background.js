@@ -57,81 +57,91 @@ function convertImgToBase64URL(url, callback, outputFormat)
 		ctx.drawImage(this, 0, 0);
 		dataURL = canvas.toDataURL(outputFormat);
 		callback(dataURL);
-		canvas = null; 
+		canvas = null;
 	};
 	img.src = url;
 }
 
 function preloadQuote()
 {
-	var tempQuote = localStorage.httydQuote;
-	localStorage.httydQuote = "";
-	var ajaxRequest = new XMLHttpRequest();
-	ajaxRequest.onreadystatechange = function()
-	{
-		if( ajaxRequest.readyState === 4 && ajaxRequest.status === 200 )
+	try {
+		var tempQuote = localStorage.httydQuote;
+		localStorage.httydQuote = "";
+		var ajaxRequest = new XMLHttpRequest();
+		ajaxRequest.onreadystatechange = function()
 		{
-			console.log("Quote 1: Received data from API");
-			var dragonQuote = JSON.parse(ajaxRequest.responseText);
-			convertImgToBase64URL(dragonQuote[0].imgur, function(base64Img)
+			if( ajaxRequest.readyState === 4 && ajaxRequest.status === 200 )
 			{
-				console.log("Quote 1: Get base64 data from image");
-				dragonQuote[0].imageData = base64Img;
-				try
+				console.log("Quote 1: Received data from API");
+				var dragonQuote = JSON.parse(ajaxRequest.responseText);
+				convertImgToBase64URL(dragonQuote[0].imgur, function(base64Img)
 				{
-					localStorage.httydQuote = JSON.stringify(dragonQuote[0]);
-				}
-				catch(err)
-				{
-					preloadQuote();
-				}
-			});
+					console.log("Quote 1: Get base64 data from image");
+					dragonQuote[0].imageData = base64Img;
+					try
+					{
+						localStorage.httydQuote = JSON.stringify(dragonQuote[0]);
+					}
+					catch(err)
+					{
+						preloadQuote();
+					}
+				});
+			}
+			else if( ajaxRequest.readyState === 4 && ajaxRequest.status === 0 )
+			{
+				console.log("Quote 1: We're offline!");
+				localStorage.httydQuote = JSON.stringify(offlineQuote);
+			}
 		}
-		else if( ajaxRequest.readyState === 4 && ajaxRequest.status === 0 )
-		{
-			console.log("Quote 1: We're offline!");
-			localStorage.httydQuote = JSON.stringify(offlineQuote);
-		}
+		ajaxRequest.open("GET", "http://barfandbel.ch/api/quote.php?limit=1", true);
+		ajaxRequest.send();
+		return true;
+	} catch(err) {
+		console.error('there was an error, ', err)
+		preloadQuote()
 	}
-	ajaxRequest.open("GET", "http://barfandbel.ch/api/quote.php?limit=1", true);
-	ajaxRequest.send();
-	return true;
 }
 
 function preloadQuote2()
 {
-	var tempQuote2 = localStorage.httydQuote2;
-	localStorage.httydQuote2 = "";
-	var ajaxRequest = new XMLHttpRequest();
-	ajaxRequest.onreadystatechange = function()
-	{
-		if( ajaxRequest.readyState === 4 && ajaxRequest.status === 200 )
+	try {
+		var tempQuote2 = localStorage.httydQuote2;
+		localStorage.httydQuote2 = "";
+		var ajaxRequest = new XMLHttpRequest();
+		ajaxRequest.onreadystatechange = function()
 		{
-			console.log("Quote 2: Received data from API");
-			var dragonQuote = JSON.parse(ajaxRequest.responseText);
-			convertImgToBase64URL(dragonQuote[0].imgur, function(base64Img)
+			if( ajaxRequest.readyState === 4 && ajaxRequest.status === 200 )
 			{
-				console.log("Quote 2: Get base64 data from image");
-				dragonQuote[0].imageData = base64Img;
-				try
+				console.log("Quote 2: Received data from API");
+				var dragonQuote = JSON.parse(ajaxRequest.responseText);
+				convertImgToBase64URL(dragonQuote[0].imgur, function(base64Img)
 				{
-					localStorage.httydQuote2 = JSON.stringify(dragonQuote[0]);
-				}
-				catch(err)
-				{
-					preloadQuote();
-				}
-			});
+					console.log("Quote 2: Get base64 data from image");
+					dragonQuote[0].imageData = base64Img;
+					try
+					{
+						localStorage.httydQuote2 = JSON.stringify(dragonQuote[0]);
+					}
+					catch(err)
+					{
+						preloadQuote();
+					}
+				});
+			}
+			else if( ajaxRequest.readyState === 4 && ajaxRequest.status === 0 )
+			{
+				console.log("Quote 2: We're offline!");
+				localStorage.httydQuote2 = JSON.stringify(offlineQuote);
+			}
 		}
-		else if( ajaxRequest.readyState === 4 && ajaxRequest.status === 0 )
-		{
-			console.log("Quote 2: We're offline!");
-			localStorage.httydQuote2 = JSON.stringify(offlineQuote);
-		}
+		ajaxRequest.open("GET", "http://barfandbel.ch/api/quote.php?limit=1", true);
+		ajaxRequest.send();
+		return true;
+	} catch(err) {
+		console.error('there was an error, ', err)
+		preloadQuote()
 	}
-	ajaxRequest.open("GET", "http://barfandbel.ch/api/quote.php?limit=1", true);
-	ajaxRequest.send();
-	return true;
 }
 
 offlineQuote = {"timestamp":"9/18/2015 2:19:12","id":"31","quote":"Mild calibration issue...","name":"Hiccup Horrendous Haddock III","source":"You're offline!","bg":"calibrationissue.png","submittedby":"Reconnect to get more quotes!","episode":"","imgur":"http://i.imgur.com/Z0BN2Lh.png","url":"","imageData":"offline.png"};
